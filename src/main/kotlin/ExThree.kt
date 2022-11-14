@@ -1,6 +1,10 @@
-fun main(){
+fun main() {
     val sideFirst = readln().toInt()
     val sideSecond = readln().toInt()
-    val diagonalRectangle = (sideFirst * sideFirst) + (sideSecond * sideSecond)
-    println(diagonalRectangle)
+    if (sideFirst > 0 || sideSecond > 0) {
+        val diagonalRectangle = (sideFirst * sideFirst) + (sideSecond * sideSecond)
+        println(diagonalRectangle)
+    } else {
+        "Ошибка"
+    }
 }
