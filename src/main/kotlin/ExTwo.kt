@@ -1,9 +1,7 @@
-
-
-
-fun main(){
-    val num = readln().toDouble()
-    print((num/518400).toInt())
-    print(" и ")
-    println(((num/518400)%10).toInt())
+fun main() {
+    val numMinutes = readln().toDouble()
+    val countOfMonth = numMinutes / 518400
+    print(countOfMonth.toInt())
+    print(" and ")
+    println((countOfMonth % 10).toInt())
 }
