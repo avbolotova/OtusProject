@@ -1,6 +1,6 @@
 package hw3
 
-fun main(){
+fun main() {
     println("Введите 1 сторону треугольника: ")
     val sideOne = readln().toInt()
     println("Введите 2 сторону треугольника: ")
@@ -8,17 +8,24 @@ fun main(){
     println("Введите 3 сторону треугольника: ")
     val sideThree = readln().toInt()
 
-    val sideOneSquare = sideOne * sideOne
-    val sideTwoSquare = sideTwo * sideTwo
-    val sideThreeSquare = sideThree * sideThree
-
-    if (sideOneSquare + sideTwoSquare > sideThreeSquare) {
-        println("Треугольник тупоугольный")
-    } else if (sideOneSquare + sideTwoSquare == sideThreeSquare) {
-        println("Треугольник прямоугольный")
-    } else if (sideOneSquare + sideTwoSquare < sideThreeSquare) {
-        println("Треугольник остроугольный")
-    } else {
+    if (sideOne <= 0 || sideTwo <= 0 || sideThree <= 0) {
         println("Ошибка")
+    } else {
+        if (sideThree * sideThree > (sideOne * sideOne) + (sideTwo * sideTwo)) {
+            println("Треугольник тупоугольный")
+        } else if (sideThree * sideThree == (sideOne * sideOne) + (sideTwo * sideTwo)) {
+            println("Треугольник прямоугольный")
+        } else if (sideThree * sideThree < (sideOne * sideOne) + (sideTwo * sideTwo)) {
+            println("Треугольник остроугольный")
+        } else {
+            println("Ошибка")
+        }
+
     }
 }
+
+
+
+
+
+

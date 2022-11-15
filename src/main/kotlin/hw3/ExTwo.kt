@@ -13,6 +13,6 @@ fun main() {
         }
         i += 1
     }
-    println("Римское число: $result")
+    println(result)
 }
 
