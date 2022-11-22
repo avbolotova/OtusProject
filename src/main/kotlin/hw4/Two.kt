@@ -2,14 +2,17 @@ package hw4
 
 
 fun main() {
-    val inputNumber = readln().toInt()
-    println(factorial(inputNumber))
+    try {
+        val InputNumber = readln().toInt()
+        println(factorial(InputNumber))
+
+    } catch (e: Exception) {
+        println("Факториал от отрицательного числа не определен")
+    }
 }
 
-fun factorial (inputNumber:Int): Int {
-    if (inputNumber == 0) return 1
-    return inputNumber * factorial(inputNumber - 1)
-
-
+fun factorial(InputNumber: Int): Int {
+    if (InputNumber <= 1) return 1
+    return InputNumber * factorial(InputNumber - 1)
 }
 
