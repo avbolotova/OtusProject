@@ -1,19 +1,25 @@
 package hw5
 
+import java.util.*
+
 fun main() {
-    val list = listOf(10, 4, 2, 7)
+    val inputNum1 = readln().toInt()
+    val inputNum2 = readln().toInt()
+    val inputNum3 = readln().toInt()
+    val inputNum4 = readln().toInt()
 
-    val min = findMin(list)
-    println(min)
-
+    val result = findMinNumber(inputNum1, inputNum2, inputNum3, inputNum4)
+    println(result)
 }
 
-fun findMin(list: List<Int>): Int? {
-    var min = Int.MAX_VALUE
-    for (i in list) {
-        min = min.coerceAtMost(i)
+fun findMinNumber(num1: Int, num2: Int, num3: Int, num4: Int): Int {
+    val arrayNumber = intArrayOf(num1, num2, num3, num4)
+    var minValueNum = arrayNumber[0]
+    var i = 0
+    while (i < arrayNumber.size) {
+        if (arrayNumber[i] < minValueNum) minValueNum = arrayNumber[i]
+        i += 1
     }
-    return min
+    return minValueNum
 }
-
 
