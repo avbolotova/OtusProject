@@ -3,8 +3,16 @@ package hw6
 import java.util.*
 
 fun main() {
-    val arrayOne = arrayOf<String>(readln())
-    val arrayTwo = arrayOf<String>(readln())
+
+    val strOne = readln()
+    val strTwo = readln()
+
+    fun String.removeWhitespaces() = replace(" ", "")
+    var resOne = strOne.removeWhitespaces()
+    var resTwo = strTwo.removeWhitespaces()
+
+    val arrayOne = arrayOf(resOne)
+    val arrayTwo = arrayOf(resTwo)
 
     val resultOne = concatinateArr(arrayOne, arrayTwo)
     println(resultOne)
