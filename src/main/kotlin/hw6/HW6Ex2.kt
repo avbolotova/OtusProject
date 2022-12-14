@@ -8,11 +8,11 @@ fun main() {
     val strTwo = readln()
 
     fun String.removeWhitespaces() = replace(" ", "")
-    var resOne = strOne.removeWhitespaces()
-    var resTwo = strTwo.removeWhitespaces()
+    var resOne = strOne.split(" ")
+    var resTwo = strTwo.split(" ")
 
-    val arrayOne = arrayOf(resOne)
-    val arrayTwo = arrayOf(resTwo)
+    val arrayOne = resOne.toTypedArray()
+    val arrayTwo = resTwo.toTypedArray()
 
     val resultOne = concatinateArr(arrayOne, arrayTwo)
     println(resultOne)
