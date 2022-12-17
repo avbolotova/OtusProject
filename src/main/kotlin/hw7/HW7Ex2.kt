@@ -20,7 +20,7 @@ class Order(
     val status: OrderStatus,
     val details: OrderDetails,
     val customer: Customer,
-    val payment: Payment
+    val payment: Payment?
 ) {
     fun calcPrice(): Int {
         return 1
@@ -32,7 +32,7 @@ class Order(
 }
 
 class OrderDetails(
-    val location: List<OrderItem>,
+    val location: String?,
     val items: List<OrderItem>
 ) {
     fun calcPrice(): Int {
@@ -50,9 +50,7 @@ data class OrderItem(
     val weight: Double,
     val price: Int
 ) {
-    init {
-        println("$name, $weight, $price")
-    }
+
 }
 enum class OrderStatus {
     SENT,
@@ -63,8 +61,12 @@ enum class OrderStatus {
     RECEIVED
 }
 class Customer(val name: String) {
-    val address: String = "Address"
+    val _name : String = name
+    val address: String? = "Address"
     val orders: List<Order> = listOf()
+
+    constructor(name: String, address: String) : this(name) {
+    }
     fun calcPrice(): Int {
         return 1
     }
@@ -80,7 +82,6 @@ abstract class Payment(
 ) {
 
     val status: PaymentStatus = PaymentStatus.NOT_PAID
-    val curr: Currency = Currency.EUR
 
     fun performPayment(): Unit {}
 }
@@ -111,7 +112,7 @@ class OnlinePayment(amount: Int, currency: Currency) : Payment(amount, currency)
 }
 
 class DelayedPayment(amount: Int, currency: Currency) : Payment(amount, currency) {
-    val endDate: Date = Date(14/12/2022)
+    val endDate: Date = TODO()
     val partAmount: String = "partAmount"
     fun performPartialPayment(amount: Int): Unit {
         return performPayment()
