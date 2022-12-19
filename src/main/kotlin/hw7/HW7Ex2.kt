@@ -16,12 +16,14 @@ fun main() {
 }
 
 class Order(
-    val date: Date,
-    val status: OrderStatus,
     val details: OrderDetails,
     val customer: Customer,
     val payment: Payment?
 ) {
+    val date: Date = TODO()
+    val status: OrderStatus = OrderStatus.AWAITING
+
+
     fun calcPrice(): Int {
         return 1
     }
@@ -31,10 +33,8 @@ class Order(
     fun pay(payment: Payment): Unit {}
 }
 
-class OrderDetails(
-    val location: String?,
-    val items: List<OrderItem>
-) {
+class OrderDetails(val items: List<OrderItem>) {
+    val location: String = ""
     fun calcPrice(): Int {
         return 1
     }
@@ -61,12 +61,9 @@ enum class OrderStatus {
     RECEIVED
 }
 class Customer(val name: String) {
-    val _name : String = name
-    val address: String? = "Address"
+    val address: String? = ""
     val orders: List<Order> = listOf()
 
-    constructor(name: String, address: String) : this(name) {
-    }
     fun calcPrice(): Int {
         return 1
     }
