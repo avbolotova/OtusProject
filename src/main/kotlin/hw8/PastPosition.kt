@@ -1,4 +1,4 @@
 package hw8
 
-abstract class PastPosition(val name: String, val department: Department)  {
+data class PastPosition(val name: String, val department: Department)  {
 }
